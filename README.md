@@ -35,15 +35,21 @@ This Python code defines a ChatMonitor class that monitors chat messages for rep
 • send_message(message): Handles sending a message to the chat.
 
 • Checks if the user is currently blocked. If so, prints a message and returns.
+
 • Normalizes the message, appends it to message_history, and removes old messages outside time_window.
+
 • If there are at least 3 messages in message_history, it counts the occurrences of each word.
+
 • If any word appears 4 or more times, it blocks the user, prints a blocking message with the word causing the block, sleeps for current_block_duration seconds, increases current_block_duration, clears message_history, and unlocks the user after the block.
+
 • Note: The send_message method also prints each message with a timestamp and the username.
 
 3. Example Usage:
 
 • Prompts the user to choose a username.
+
 • Enters a loop where the user can continuously input messages.
+
 • Each message input is passed to send_message, which processes and potentially blocks the user based on repeated word occurrences.
 
 Summary: This ChatMonitor class effectively monitors chat messages, identifies repeated use of specific words within a defined time window, and applies increasing durations of blocking for users who violate the repetition threshold. It handles input/output, message normalization, and time-based operations to enforce chat rules.
